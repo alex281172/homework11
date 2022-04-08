@@ -1,4 +1,4 @@
-def bank():
+def banks():
     accaunt = 0
     pay_history = []
     while True:
@@ -27,6 +27,11 @@ def bank():
             print(f'На счете {accaunt} руб.')
         elif choice == '4':
             break
+
+
+
         else:
             print('Неверный пункт меню')
-bank()
+if __name__ == '__main__':
+    banks()
+

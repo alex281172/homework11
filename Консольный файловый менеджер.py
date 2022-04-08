@@ -7,6 +7,7 @@ import turtle
 
 
 
+
 while True:
     print('1. создать папку')
     print('2. удалить (файл/папку)')
@@ -19,8 +20,8 @@ while True:
     print('9. играть в викторину')
     print('10. мой банковский счет')
     print('11. смена рабочей директории')
-    print('12. выход')
-    print('13. Черепашка')
+    print('12. Черепашка')
+    print('13. выход')
 
 
     choice = input('Выберите пункт меню -> ')
@@ -116,9 +117,10 @@ while True:
             get_person_and_question()
         print('Пока!')
         print('*' * 51)
-        continue
     elif choice == '10':
-        from bank import bank
+        print(f'{"*" * 18} КОШЕЛЕК {"*" * 18} ')
+        from bank import banks
+        banks()
     elif choice == '11':
         print(f'Текущий рабочий каталог {os.getcwd()}')
         new_path = input('Укажите новый рабочий каталог:')
@@ -137,9 +139,11 @@ while True:
             print('текущий каталог', os.getcwd())
             print('*' * 51)
     elif choice == '12':
-        break
-    elif choice == '13':
         print(f'{"*" * 18} ЧЕРЕПАШКА {"*" * 18} ')
         from tortila import my_turtle
+        my_turtle()
+    elif choice == '13':
+        break
+
     else:
         print('Неверный пункт меню')

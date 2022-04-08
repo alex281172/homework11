@@ -16,5 +16,5 @@ def my_turtle():
         turtle.end_fill()
         turtle.forward(step2)
         turtle.right(60)
-
-my_turtle()
+if __name__ == '__main__':
+    my_turtle()

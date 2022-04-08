@@ -10,20 +10,21 @@ def get_random_person():
                      'Андрей Николаевич Туполев': '29.10.1888', 'Юрий Алексеевич Гагарин': '09.03.1934'}
 
 
-    name, date = random.choice(list(FAMOUS_PEOPLE.items()))
-    return name, date
+    names, date = random.choice(list(FAMOUS_PEOPLE.items()))
+    return names, date
 
 
 def get_person_and_question():
 
-    name, date = get_random_person()
+    names, date = get_random_person()
 
-    answer = input(f'Когда родился {name} ')
+    answer = input(f'Когда родился {names} ')
 
     if answer == date:
         print('Верно')
     else:
         print('Неверно')
+
 
 if __name__ == '__main__':
     print('Проверка фукцнии', get_random_person())
