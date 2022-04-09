@@ -39,18 +39,33 @@ while True:
                 print('*' * 51)
                 break
     elif choice == '2':
-        print(f'{"*" * 18} УДАЛЕНИЕ ПАПКИ {"*" * 18} ')
+        print(f'{"*" * 18} УДАЛЕНИЕ ПАПКИ/ФАЙЛА {"*" * 18} ')
         while True:
-            name_folder = input('укажите название папки для удаления: ')
-            if os.path.exists(name_folder):
-                os.rmdir(f'{os.getcwd()}\{name_folder}')
-                print(f'папка \'{name_folder}\' удалена')
-                print('*' * 51)
-                break
-            else:
-                print(f'папка \'{name_folder}\' не существует')
-                print('*' * 51)
-                break
+            choise = int(input('удалить папку - укажите \'1\', удалить файл - - укажите \'2\': '))
+            if choise == 1:
+                print(f'{"*" * 18} УДАЛЕНИЕ ПАПКИ {"*" * 18} ')
+                name_folder = input('укажите название папки для удаления: ')
+                if os.path.exists(name_folder):
+                    os.rmdir(f'{os.getcwd()}\{name_folder}')
+                    print(f'папка \'{name_folder}\' удалена')
+                    print('*' * 51)
+                    break
+                else:
+                    print(f'папка \'{name_folder}\' не существует')
+                    print('*' * 51)
+                    break
+            if choise == 2:
+                print(f'{"*" * 18} УДАЛЕНИЕ ФАЙЛА {"*" * 18} ')
+                name_folder = input('укажите название файла для удаления: ')
+                if os.path.exists(name_folder):
+                    os.remove(f'{os.getcwd()}\{name_folder}')
+                    print(f'файл \'{name_folder}\' удален')
+                    print('*' * 51)
+                    break
+                else:
+                    print(f'файл \'{name_folder}\' не существует')
+                    print('*' * 51)
+                    break
     elif choice == '3':
         print(f'{"*" * 18} КОПИРОВАНИЕ {"*" * 18} ')
         while True:
