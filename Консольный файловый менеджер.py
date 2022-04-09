@@ -6,7 +6,12 @@ import turtle
 
 
 
-
+def separator(count=51):
+    return '*' * count
+def separator1(count=51):
+    return '-' * count
+def author_info():
+    return 'Aleksey Savotchenko'
 
 while True:
     print('1. создать папку')
@@ -36,7 +41,7 @@ while True:
                 break
             else:
                 print(f'папка \'{name_folder}\' существует')
-                print('*' * 51)
+                print(separator())
                 break
     elif choice == '2':
         print(f'{"*" * 18} УДАЛЕНИЕ ПАПКИ/ФАЙЛА {"*" * 18} ')
@@ -48,11 +53,11 @@ while True:
                 if os.path.exists(name_folder):
                     os.rmdir(f'{os.getcwd()}\{name_folder}')
                     print(f'папка \'{name_folder}\' удалена')
-                    print('*' * 51)
+                    print(separator())
                     break
                 else:
                     print(f'папка \'{name_folder}\' не существует')
-                    print('*' * 51)
+                    print(separator())
                     break
             if choise == 2:
                 print(f'{"*" * 18} УДАЛЕНИЕ ФАЙЛА {"*" * 18} ')
@@ -60,11 +65,11 @@ while True:
                 if os.path.exists(name_folder):
                     os.remove(f'{os.getcwd()}\{name_folder}')
                     print(f'файл \'{name_folder}\' удален')
-                    print('*' * 51)
+                    print(separator())
                     break
                 else:
                     print(f'файл \'{name_folder}\' не существует')
-                    print('*' * 51)
+                    print(separator())
                     break
     elif choice == '3':
         print(f'{"*" * 18} КОПИРОВАНИЕ {"*" * 18} ')
@@ -77,7 +82,7 @@ while True:
                     name_folder_new = input('укажите название новой папки: ')
                     shutil.copytree(name_folder, name_folder_new)
                     print(f'папка \'{name_folder}\' скопирована в \'{name_folder_new}\'')
-                    print('*' * 51)
+                    print(separator())
                     break
                 else:
                     print(f'папка \'{name_folder}\' не существует. нечего копировать...')
@@ -88,31 +93,29 @@ while True:
                     name_folder_new = input('укажите название нового файла: ')
                     shutil.copy(name_folder, name_folder_new)
                     print(f'файл \'{name_folder}\' скопирован в \'{name_folder_new}\'')
-                    print('*' * 51)
+                    print(separator())
                     break
                 else:
                     print(f'файл \'{name_folder}\' не существует. нечего копировать...')
             else:
                 print('неверный выбор')
     elif choice == '4':
-        path = '.'
-        rez = sorted(os.listdir())
         print(f'{"*" * 18} ФАЙЛЫ И ПАПКИ {"*" * 18} ')
-        for n, item in enumerate(rez):
+        for n, item in enumerate(os.listdir()):
             print(n + 1, item)
-        print('*' * 51)
+        print(separator())
     elif choice == '5':
         print(f'{"*" * 18} СПИСОК ПАПОК {"*" * 18} ')
-        for counter in os.listdir():
-            if os.path.isdir(counter):
-                print(counter)
-        print('*' * 51)
+        for name_item in os.listdir():
+            if os.path.isdir(name_item):
+                print(name_item)
+        print(separator())
     elif choice == '6':
         print(f'{"*" * 18} СПИСОК ФАЙЛОВ {"*" * 18} ')
-        for counter in os.listdir():
-            if os.path.isfile(os.path.join(counter)):
-                print(counter)
-        print('*' * 51)
+        for name_item in os.listdir():
+            if os.path.isfile(os.path.join(name_item)):
+                print(name_item)
+        print(separator())
     elif choice == '7':
         print(f'Операционная система: {sys.platform}')
         print(f'Каталог установки Python: {sys.exec_prefix}')
@@ -120,8 +123,11 @@ while True:
         print(f'Версия python: {sys.version}')
     elif choice == '8':
         print(f'{"*" * 18} СОЗДАТЕЛЬ ПРОГРАММЫ {"*" * 18} ')
-        print(f'Создатель программы: {sys.copyright}')
-        print('*' * 51)
+        print(f'Создатель программы \'Консольный файловый менеджер\': {author_info()}')
+        print(separator())
+        print(separator())
+        print(f'Copyright: {sys.copyright}')
+        print(separator())
     elif choice == '9':
         print(f'{"*" * 18} ВИКТОРИНА {"*" * 18} ')
         from famous_persons import get_person_and_question
@@ -131,7 +137,7 @@ while True:
         for i in range(rounds):
             get_person_and_question()
         print('Пока!')
-        print('*' * 51)
+        print(separator())
     elif choice == '10':
         print(f'{"*" * 18} КОШЕЛЕК {"*" * 18} ')
         from bank import banks
@@ -142,17 +148,17 @@ while True:
         try:
             os.chdir(new_path)
             print(f'Текущий рабочий каталог {os.getcwd()}')
-            print('*' * 51)
+            print(separator())
         except:
-            print('*' * 51)
+            print(separator())
             print('неверный путь')
-            print('-' * 51)
+            print(separator1())
             print(sys.exc_info())
-            print('-' * 51)
+            print(separator1())
         finally:
             os.chdir(os.getcwd())
             print('текущий каталог', os.getcwd())
-            print('*' * 51)
+            print(separator())
     elif choice == '12':
         print(f'{"*" * 18} ЧЕРЕПАШКА {"*" * 18} ')
         from tortila import my_turtle
