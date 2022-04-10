@@ -3,15 +3,8 @@ import shutil
 import sys
 import shutil
 import turtle
+from functioms_filemanager import *
 
-
-
-def separator(count=51):
-    return '*' * count
-def separator1(count=51):
-    return '-' * count
-def author_info():
-    return 'Aleksey Savotchenko'
 
 while True:
     print('1. создать папку')
@@ -113,7 +106,7 @@ while True:
     elif choice == '6':
         print(f'{"*" * 18} СПИСОК ФАЙЛОВ {"*" * 18} ')
         for name_item in os.listdir():
-            if os.path.isfile(os.path.join(name_item)):
+            if os.path.isfile(name_item):
                 print(name_item)
         print(separator())
     elif choice == '7':

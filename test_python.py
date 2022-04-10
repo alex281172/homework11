@@ -74,6 +74,9 @@ if sorted(friends, reverse=True) == ['max', 'man', 'leo', 'kate']:
     print('Ok')
 else:
     print('Failed')
+print('*' * 50)
+
+print(f'{"*" * 14} ФУНКЦИИ ТЕСТИРОВАНИЯ {"*" * 14} ')
 
 def test_filter():
     assert list(f_m(f, friends)) == ['max', 'man']
@@ -87,7 +90,7 @@ def test_sorted():
 
 def root(x):
     return math.sqrt(x)
-print(root(4))
+# print(root(4))
 
 assert root(4) == 2.0
 
@@ -97,7 +100,7 @@ def test_root():
 
 def func_pi(x):
     return x ** 2 * math.pi
-print(func_pi(1))
+# print(func_pi(1))
 
 assert func_pi(1) == math.pi
 
@@ -106,7 +109,7 @@ def test_func_pi():
 
 def func_pow(x, y):
     return pow(x, y)
-print(func_pow(3, 3))
+# print(func_pow(3, 3))
 
 assert func_pow(3, 3) == 27
 
@@ -115,7 +118,7 @@ def test_func_pow():
 
 def func_hypot(x, y):
     return math.hypot(x, y)
-print(func_hypot(3, 4))
+# print(func_hypot(3, 4))
 
 assert func_hypot(3, 4) == 5.0
 
