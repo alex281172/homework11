@@ -169,4 +169,4 @@ while True:
     elif choice == '14':
         break
     else:
-        print('Неверный пункт меню')
+        print('Неверный выбор меню')
