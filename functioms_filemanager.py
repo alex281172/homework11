@@ -55,8 +55,3 @@ if '__name__' != '__main__':
             print(f'\'{name_item}\' удален')
         else:
             print(f'\'{name_item}\' не существует. нечего удалять...')
-
-
-
-
-
