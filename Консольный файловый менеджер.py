@@ -4,7 +4,12 @@ import sys
 import shutil
 import turtle
 from functioms_filemanager import *
+from tortila import my_turtle
 
+
+
+with open('history_oder.txt', 'w') as f:
+    f.write('')
 
 while True:
     print('1. создать папку')
@@ -13,13 +18,15 @@ while True:
     print('4. просмотр содержимого рабочей директории')
     print('5. посмотреть только папки')
     print('6. посмотреть только файлы')
-    print('7. просмотр информации об операционной систем')
+    print('7. просмотр информации об операционной системе')
     print('8. создатель программы')
     print('9. играть в викторину')
     print('10. мой банковский счет')
     print('11. смена рабочей директории')
     print('12. Черепашка')
-    print('13. выход')
+    print('13. сохранить содержимое рабочей директории в файл')
+    print('14. выход')
+
 
 
     choice = input('Выберите пункт меню -> ')
@@ -35,63 +42,63 @@ while True:
             else:
                 print(f'папка \'{name_folder}\' существует')
                 print(separator())
-                break
+            break
     elif choice == '2':
-        print(f'{"*" * 18} УДАЛЕНИЕ ПАПКИ/ФАЙЛА {"*" * 18} ')
-        while True:
-            choise = int(input('удалить папку - укажите \'1\', удалить файл - - укажите \'2\': '))
-            if choise == 1:
-                print(f'{"*" * 18} УДАЛЕНИЕ ПАПКИ {"*" * 18} ')
-                name_folder = input('укажите название папки для удаления: ')
-                if os.path.exists(name_folder):
-                    os.rmdir(f'{os.getcwd()}\{name_folder}')
-                    print(f'папка \'{name_folder}\' удалена')
-                    print(separator())
-                    break
-                else:
-                    print(f'папка \'{name_folder}\' не существует')
-                    print(separator())
-                    break
-            if choise == 2:
-                print(f'{"*" * 18} УДАЛЕНИЕ ФАЙЛА {"*" * 18} ')
-                name_folder = input('укажите название файла для удаления: ')
-                if os.path.exists(name_folder):
-                    os.remove(f'{os.getcwd()}\{name_folder}')
-                    print(f'файл \'{name_folder}\' удален')
-                    print(separator())
-                    break
-                else:
-                    print(f'файл \'{name_folder}\' не существует')
-                    print(separator())
-                    break
+        delete_file_folder()
+        # while True:
+        #     choise = int(input('удалить папку - укажите \'1\', удалить файл - - укажите \'2\': '))
+        #     if choise == 1:
+        #         print(f'{"*" * 18} УДАЛЕНИЕ ПАПКИ {"*" * 18} ')
+        #         name_folder = input('укажите название папки для удаления: ')
+        #         if os.path.exists(name_folder):
+        #             os.rmdir(f'{os.getcwd()}\{name_folder}')
+        #             print(f'папка \'{name_folder}\' удалена')
+        #             print(separator())
+        #             break
+        #         else:
+        #             print(f'папка \'{name_folder}\' не существует')
+        #             print(separator())
+        #             break
+        #     if choise == 2:
+        #         print(f'{"*" * 18} УДАЛЕНИЕ ФАЙЛА {"*" * 18} ')
+        #         name_folder = input('укажите название файла для удаления: ')
+        #         if os.path.exists(name_folder):
+        #             os.remove(f'{os.getcwd()}\{name_folder}')
+        #             print(f'файл \'{name_folder}\' удален')
+        #             print(separator())
+        #             break
+        #         else:
+        #             print(f'файл \'{name_folder}\' не существует')
+        #             print(separator())
+        #             break
     elif choice == '3':
-        print(f'{"*" * 18} КОПИРОВАНИЕ {"*" * 18} ')
-        while True:
-            choise = int(input('копировать папку - укажите \'1\', копировать файл - - укажите \'2\': '))
-            if choise == 1:
-                print(f'{"*" * 18} КОПИРОВАНИЕ ПАПКИ {"*" * 18} ')
-                name_folder = input('укажите название папки для копирования: ')
-                if os.path.exists(name_folder):
-                    name_folder_new = input('укажите название новой папки: ')
-                    shutil.copytree(name_folder, name_folder_new)
-                    print(f'папка \'{name_folder}\' скопирована в \'{name_folder_new}\'')
-                    print(separator())
-                    break
-                else:
-                    print(f'папка \'{name_folder}\' не существует. нечего копировать...')
-            if choise == 2:
-                print(f'{"*" * 18} КОПИРОВАНИЕ ФАЙЛА {"*" * 18} ')
-                name_folder = input('укажите название файла для копирования: ')
-                if os.path.exists(name_folder):
-                    name_folder_new = input('укажите название нового файла: ')
-                    shutil.copy(name_folder, name_folder_new)
-                    print(f'файл \'{name_folder}\' скопирован в \'{name_folder_new}\'')
-                    print(separator())
-                    break
-                else:
-                    print(f'файл \'{name_folder}\' не существует. нечего копировать...')
-            else:
-                print('неверный выбор')
+        copy_file_folder()
+        # while True:
+        #     choise = int(input('копировать папку - укажите \'1\', копировать файл - - укажите \'2\': '))
+        #     if choise == 1:
+        #         print(f'{"*" * 18} КОПИРОВАНИЕ ПАПКИ {"*" * 18} ')
+        #         name_folder = input('укажите название папки для копирования: ')
+        #         if os.path.exists(name_folder):
+        #             name_folder_new = input('укажите название новой папки: ')
+        #             shutil.copytree(name_folder, name_folder_new)
+        #             print(f'папка \'{name_folder}\' скопирована в \'{name_folder_new}\'')
+        #             print(separator())
+        #             break
+        #         else:
+        #             print(f'папка \'{name_folder}\' не существует. нечего копировать...')
+        #     if choise == 2:
+        #         print(f'{"*" * 18} КОПИРОВАНИЕ ФАЙЛА {"*" * 18} ')
+        #         name_folder = input('укажите название файла для копирования: ')
+        #         if os.path.exists(name_folder):
+        #             name_folder_new = input('укажите название нового файла: ')
+        #             shutil.copy(name_folder, name_folder_new)
+        #             print(f'файл \'{name_folder}\' скопирован в \'{name_folder_new}\'')
+        #             print(separator())
+        #             break
+        #         else:
+        #             print(f'файл \'{name_folder}\' не существует. нечего копировать...')
+        #     else:
+        #         print('неверный выбор')
     elif choice == '4':
         print(f'{"*" * 18} ФАЙЛЫ И ПАПКИ {"*" * 18} ')
         for n, item in enumerate(os.listdir()):
@@ -154,10 +161,12 @@ while True:
             print(separator())
     elif choice == '12':
         print(f'{"*" * 18} ЧЕРЕПАШКА {"*" * 18} ')
-        from tortila import my_turtle
         my_turtle()
     elif choice == '13':
+        print(f'{"*" * 5} выгрузка в ФАЙЛ \'list_dirs_files.txt\' списка  {"*" * 5} ')
+        save_info()
+        print(separator())
+    elif choice == '14':
         break
-
     else:
         print('Неверный пункт меню')

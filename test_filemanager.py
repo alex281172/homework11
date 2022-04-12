@@ -23,3 +23,4 @@ def test_shutil_tree():
     shutil.copytree('folder_test', 'folder_test_new')
     assert 'folder_test_new' in os.listdir()
 
+
