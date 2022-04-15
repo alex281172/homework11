@@ -14,23 +14,34 @@ def banks():
         print(f'На счете {accaunt} руб.')
         print('-' * 50)
 
-        choice = input('Выберите пункт меню -> ')
+        choice = input('Выберите пункт меню Мой банковский счет -> ')
         if choice == '1':
-            accaunt = accaunt + int(input('пополните счет: '))
-            with open('accaunt.txt', 'w') as f:
-                accaunt_str = str(accaunt)
-                f.write(accaunt_str)
-            print(f'На счете {accaunt} руб.')
+            while True:
+                try:
+                    accaunt = accaunt + int(input('пополните счет: '))
+                    with open('accaunt.txt', 'w') as f:
+                        accaunt_str = str(accaunt)
+                        f.write(accaunt_str)
+                    print(f'На счете {accaunt} руб.')
+                    break
+                except ValueError:
+                    print('введите число')
         elif choice == '2':
-            pay = int(input('введите сумму покупки: '))
-            if accaunt >= pay:
-                pay_object = input('что покупаете? ')
-                accaunt -= pay
-                # pay_history.append((pay_object, pay))
-                with open('history_oder.txt', 'a', encoding='utf-8') as f:
-                    f.write(f'{pay_object, pay}\n')
-            else:
-                print('Средств недостаточно')
+            while True:
+                try:
+                    pay = int(input('введите сумму покупки: '))
+                    if accaunt >= pay:
+                        pay_object = input('что покупаете? ')
+                        accaunt -= pay
+                        # pay_history.append((pay_object, pay))
+                        with open('history_oder.txt', 'a', encoding='utf-8') as f:
+                            f.write(f'{pay_object, pay}\n')
+                        print(f'Вы купили \'{pay_object}\' за {pay}руб.')
+                        break
+                    else:
+                        print('Средств недостаточно')
+                except ValueError:
+                    print('введите число')
         elif choice == '3':
             print('*' * 50)
             print('История покупок:')
@@ -44,9 +55,6 @@ def banks():
             print('*' * 50)
         elif choice == '4':
             break
-
-
-
         else:
             print('Неверный пункт меню')
 if __name__ == '__main__':
