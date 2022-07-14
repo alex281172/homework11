@@ -1,0 +1,2 @@
+dirs: .git, .idea, .pytest_cache, folder_test, folder_test_new, new1, new2, new3, new4, new5, venv, __pycache__, 
+files: accaunt.txt, bank.py, bank2.py, famous_persons.py, functioms_filemanager.py, history_oder.txt, lesson.txt, list_dirs_files.txt, test_filemanager.py, test_python.py, tortila.py, victiry.py, Консольный файловый менеджер.py, 
